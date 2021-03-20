@@ -19,6 +19,7 @@ pytest = "^4.6"
 pytest-cov = "^2.7"
 pylint = "^2.7.2"
 rope = "^0.18.0"
+flake8 = "^3.9.0"
 
 [tool.poetry.scripts]
 scrap-allocine = 'scraper.main:main'

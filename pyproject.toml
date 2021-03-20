@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "scrap-allocine"
+version = "1.0"
+description = "Scraper of movies weekly releases from allocine.fr"
+authors = ["Aize Launa <aize.launa@protonmail.com>"]
+license = "MIT"
+
+packages = [
+    { include = "scraper" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.25.1"
+beautifulsoup4 = "^4.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+pytest-cov = "^2.7"
+pylint = "^2.7.2"
+rope = "^0.18.0"
+
+[tool.poetry.scripts]
+scrap-allocine = 'scraper.main:main'

@@ -1,0 +1,13 @@
+.python-version
+*.log
+*.list
+.cache/
+__pycache__/
+*egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+.vscode/.ropeproject/
+.vscode/settings.json
+weeklies/

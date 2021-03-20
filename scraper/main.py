@@ -1,12 +1,14 @@
 #!/usr/bin/python3
+# PYTHON_ARGCOMPLETE_OK
 
 import argparse
 from bs4 import BeautifulSoup
 from datetime import date, timedelta
 import os
 import requests
+import sys
 
-URL_DOMAIN="https://www.allocine.fr"
+URL_DOMAIN = "https://www.allocine.fr"
 
 
 class Movie():
@@ -66,8 +68,8 @@ class Movie():
 
     def print(self):
         print(f"{self.title}:")
-        print(f"    direction: " + ", ".join(self.direction))
-        print(f"    actors: " + ", ".join(self.actors))
+        print("    direction: " + ", ".join(self.direction))
+        print("    actors: " + ", ".join(self.actors))
         print(f"    synopsis: {self.synopsis}")
         print(f"    press: {self.press_note}")
         print(f"    spectators: {self.spectators_note}")
@@ -148,10 +150,22 @@ def main():
             " (YYYY-MM-DD)"
         )
     )
+
+    # enable bash tab completion if argcomplete is installed
+    try:
+        import argcomplete
+        argcomplete.autocomplete(parser)
+    except ModuleNotFoundError:
+        pass
+    except ImportError:
+        pass
+
     args = parser.parse_args()
 
+    # prepare output folder
     os.makedirs("weeklies", exist_ok=True)
 
+    # scrap and modify weekly web pages
     current_date = date.fromisoformat(args.date)
 
     while current_date < date.today():
@@ -166,6 +180,8 @@ def main():
 
         current_date = next_date
 
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

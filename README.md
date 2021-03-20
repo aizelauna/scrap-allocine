@@ -43,7 +43,10 @@ poetry run scrap-allocine 2020-10-28
 
 ```sh
 # Ubuntu
-sudo apt install -y git
+sudo apt install -y git python3-argcomplete
+
+# Enable argcomplete
+sudo activate-global-python-argcomplete3
 
 # Install poetry
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python

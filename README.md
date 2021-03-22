@@ -39,6 +39,16 @@ poetry install
 poetry run scrap-allocine 2020-10-28
 ```
 
+## Deploy
+
+```shell
+# Build Wheel package
+poetry build
+
+# Install scrap-allocine as a CLI tool to the current user environment
+pipx install $(ls dist/*.whl)
+```
+
 ## Prerequisites
 
 ```sh
@@ -47,6 +57,10 @@ sudo apt install -y git python3-argcomplete
 
 # Enable argcomplete
 sudo activate-global-python-argcomplete3
+
+# Install pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 
 # Install poetry
 curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
